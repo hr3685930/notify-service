@@ -1,0 +1,36 @@
+syntax = "proto3";
+package notify;
+option go_package = "api/proto/pb;proto";
+
+import "api/proto/notify/test.proto";
+
+service Notify {
+  rpc SendEmail(EmailRequest) returns (EmailResponse);
+  rpc SendWechatOfficialMsg(OfficialMsgRequest) returns (TestReq);
+}
+
+message OfficialMsgRequest {
+  string app_id = 1;
+  string app_secret = 2;
+  repeated string open_ids = 3;
+  string msg = 4;
+}
+
+message OfficialMsgResponse {
+  string message = 2;
+}
+
+message EmailRequest {
+  string to = 1;
+  string from = 2;
+  string reply_to = 3;
+  string cc = 4;
+  string bcc = 5;
+  string subject = 6;
+  string content = 7;
+  string from_name = 8;
+}
+
+message EmailResponse {
+  string message = 2;
+}

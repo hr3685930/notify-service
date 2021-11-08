@@ -1,0 +1,12 @@
+.DS_Store
+.idea
+.git
+.env
+.dockerignore
+.editorconfig
+.gitattributes
+.gitignore
+.gitlab-ci.yml
+Dockerfile
+readme.md
+docker-compose.yml

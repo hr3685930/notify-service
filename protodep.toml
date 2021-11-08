@@ -1,0 +1,7 @@
+proto_outdir = "./api/proto"
+
+[[dependencies]]
+  target = "git.kid17.com/tiny/library/service/proto/auth"
+  branch = "master"
+  path = "auth"
+  protocol = "https"

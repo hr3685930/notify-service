@@ -1,0 +1,36 @@
+syntax = "proto3";
+import "api/proto/notify/notify.proto";
+
+package service.auth.v1;
+
+option go_package = "api/proto/pb;proto";
+
+service Auth{
+  rpc login(LoginRequest) returns (LoginResponse){}
+  rpc wxUserLogin(WXLoginRequest) returns (notify.OfficialMsgRequest){}
+  rpc ping(PingRequest) returns (PingResponse){}
+}
+
+message LoginRequest{
+  string code = 1;
+  string platformName = 2;
+  string corpID = 3;
+}
+
+message LoginResponse{
+  string sessionKey = 1;
+}
+
+message WXLoginRequest{
+  string code = 1;
+  string platformName = 2;
+  string platformSuitType = 3;
+}
+
+message PingRequest{}
+
+message PingResponse{
+  string code = 1;
+  string msg = 2;
+  string data = 3;
+}
